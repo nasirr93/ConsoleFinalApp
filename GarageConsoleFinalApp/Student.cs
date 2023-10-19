@@ -1,15 +1,17 @@
 ﻿using GarageConsoleFinalApp.Enums;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GarageConsoleFinalApp
 {
     internal class Student
     {
-        private static int No = 100;
+        private static int no = 100;
         private string  fullname;
         public string FullName 
         { 
@@ -32,9 +34,9 @@ namespace GarageConsoleFinalApp
             get { return groupNo; }
             set
             {
-                if (checkGroupNo(value))
+                if (value.Length > 5)
                 {
-                    groupNo = value;
+                    groupNo = checkGroupNo(value);
                 }
                 else
                 {
@@ -91,32 +93,40 @@ namespace GarageConsoleFinalApp
             return false;
         }
 
-        private bool checkGroupNo(string groupNum)
+        private string checkGroupNo(string group)
         {
+            string groupNo = group.Substring(0, 1).ToUpper();
+
             try
             {
-                if (groupNum.Length > 3)
+                if (groupNo == group.ToString().Substring(0, 1).ToUpper())
                 {
-                    char firstChar = char.ToUpper(groupNum[0]);
-
-                    if (
-                         firstChar == GroupType.Programming.ToString()[0]
-                      || firstChar == GroupType.Design.ToString()[0] 
-                      || firstChar == GroupType.System.ToString()[0])
+                    if (groupNo == GroupType.Programming.ToString().Substring(0, 1).ToUpper())
                     {
-                        string text = firstChar.ToString();
-                        int stNo = No++;
-                        string join = $"{text}{stNo}";
-                        return true;
+                        groupNo = "P";
                     }
+                    else if (groupNo == GroupType.Design.ToString().Substring(0, 1).ToUpper())
+                    {
+                        groupNo = "D";
+                    }
+                    else if (groupNo == GroupType.System.ToString().Substring(0, 1).ToUpper())
+                    {
+                        groupNo = "S";
+                    }
+                    int empNo = no++;
+                    string text = groupNo.ToString().Substring(0, 1);
+                    string join = $"{text}{empNo}";
+                    return join;
                 }
+
             }
             catch (Exception)
             {
+
                 throw new ArgumentException();
             }
 
-            return false;
+            throw new ArgumentException();
         }
 
     }

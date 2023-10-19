@@ -36,9 +36,13 @@ namespace GarageConsoleFinalApp
             get { return empno; }
             set
             {
-                if (EmployeeNo(value))
+                if (value.Length>=2)
                 {
-                    empno= value;
+                    empno = EmployeeNo(value);
+                }
+                else 
+                {
+                    Console.WriteLine("Xeta bas verdi");
                 }
             }
         }
@@ -76,33 +80,44 @@ namespace GarageConsoleFinalApp
                     throw new ArgumentException("Error.. Try again !");
             }
         }
-        public Department Department { get; set; }  
+        private Department department;
+        public Department Department
+        {
+            get { return department; }
+            set
+            {
+                department = value;
+            }
+        }  
+
         public EmployeeType EmployeeType { get; set; }
 
 
-        private bool EmployeeNo(string departmentNo)
+        private string EmployeeNo(string department)
         {
+
+            string departmentNo = department.Substring(0, 2).ToUpper();
+
             try
             {
-                if (departmentNo.Length > 5)
+                if (departmentNo == department.ToString().Substring(0, 2).ToUpper())
                 {
                     if (departmentNo == Department.IT.ToString().Substring(0, 2).ToUpper())
                     {
-                        no++;
+                        departmentNo = "IT";
                     }
-                    else if (departmentNo == Department.FINANCE.ToString().Substring(0, 2).ToUpper())
+                    else if (departmentNo == Department.Finance.ToString().Substring(0, 2).ToUpper())
                     {
-                        no++;
+                        departmentNo = "Fİ";
                     }
-                    else if (departmentNo == Department.MARKETING.ToString().Substring(0, 2).ToUpper())
+                    else if (departmentNo == Department.Marketing.ToString().Substring(0, 2).ToUpper())
                     {
-                        no++;
+                        departmentNo = "MA";
                     }
-
-                    string text = departmentNo.ToString().Substring(0, 2);
                     int empNo = no++;
+                    string text = departmentNo.ToString().Substring(0, 2);
                     string join = $"{text}{empNo}";
-                    return true;
+                    return join;
                 }
                 
             }
@@ -111,7 +126,8 @@ namespace GarageConsoleFinalApp
 
                 throw new ArgumentException();
             }
-            return false;
+            
+            throw new ArgumentException();
         }
 
         private bool CheckFullname(string fullname)

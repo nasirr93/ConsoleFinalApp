@@ -140,7 +140,6 @@ namespace GarageConsoleFinalApp
 
             if (groupStudents != null && groupStudents.Count > 0)
             {
-                Console.WriteLine("Point 0 di");
 
                 foreach (var student in groupStudents)
                 {
@@ -158,7 +157,7 @@ namespace GarageConsoleFinalApp
         }
         public void AddEmployee(Employee employee)
         {
-            if (_employees.Count < WorkerLimit && !_employees.Exists(x => x.empNo == employee.empNo))
+            if (_employees.Count < WorkerLimit && !_employees.Exists(e => e.Position == employee.Position))
                 _employees.Add(employee);
 
             else
@@ -212,18 +211,31 @@ namespace GarageConsoleFinalApp
         public void ShowStudent()
         {
 
-            foreach (var item in _students)
+            if (_students != null && _students.Count > 0)
             {
-                Console.WriteLine($"(Fullname: {item.FullName} \r\n GroupType {item.GroupType} \r\n GroupNo {item.GroupNo} \r\n Point {item.Point}");
+                foreach (var item in _students)
+                {
+                    Console.WriteLine($"(Fullname: {item.FullName} \r\n GroupType {item.GroupType} \r\n GroupNo {item.GroupNo} \r\n Point {item.Point}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Sistemde telebe yoxdu");
             }
         }
 
         public void ShowEmployee()
         {
-
-            foreach (var item in _employees)
+            if (_employees != null && _employees.Count > 0)
             {
-                Console.WriteLine($"(Fullname: {item.empNo} \r\n GroupType: {item.Fullname} \r\n GroupNo: {item.Position} \r\n Point: {item.Salary} \r\n Department: {item.Department} \r\n EmployeeType: {item.EmployeeType}");
+                foreach (var item in _employees)
+                {
+                    Console.WriteLine($"(Fullname: {item.Fullname} \r\n Department: {item.Department} \r\n GroupNo: {item.empNo} \r\n Position: {item.Position} \r\n Salary: {item.Salary} \r\n EmployeeType: {item.EmployeeType}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Sistemde isci yoxdu");
             }
         }
 

@@ -157,8 +157,6 @@ namespace GarageConsoleFinalApp
                     string fullname = Console.ReadLine();
                     Console.Write("Group Type: ");
                     GroupType groupType = (GroupType)Enum.Parse(typeof(GroupType), Console.ReadLine());
-                    Console.Write("GroupNo: ");
-                    string groupNo = Console.ReadLine();
                     Console.Write("Point: ");
                     string pointStr;
                     double point;
@@ -173,7 +171,7 @@ namespace GarageConsoleFinalApp
                     {
                         FullName = fullname,
                         GroupType = groupType,
-                        GroupNo = groupNo,
+                        GroupNo = groupType.ToString(),
                         Point = point
                     };
                     university.AddStudent(student);
@@ -220,10 +218,10 @@ namespace GarageConsoleFinalApp
             {
                 try
                 {
-                    Console.Write("No daxil edin : ");
-                    string no = Console.ReadLine();
                     Console.Write("Fullname daxil edin : ");
                     string fullname = Console.ReadLine();
+                    Console.Write("Department : ");
+                    Department department = (Department)Enum.Parse(typeof(Department), Console.ReadLine());
                     Console.Write("Position daxil edin : ");
                     string position = Console.ReadLine();
                     Console.Write("Salary daxil edin : ");
@@ -233,19 +231,18 @@ namespace GarageConsoleFinalApp
                     {
                         salaryStr = Console.ReadLine();
                     } while (!double.TryParse(salaryStr, out salary));
-                    Console.Write("Department : ");
-                    Department department = (Department)Enum.Parse(typeof(Department), Console.ReadLine());
                     Console.Write("EmployeeType daxil edin : ");
                     EmployeeType employeetype=(EmployeeType)Enum.Parse(typeof(EmployeeType), Console.ReadLine());
 
                     Employee employee = new Employee
                     {
-                        empNo = no,
+                        
                         Fullname = fullname,
+                        Department = department,
+                        empNo = department.ToString(),
                         Position = position,
                         Salary = salary,
-                        Department = department,
-                        EmployeeType=employeetype
+                        EmployeeType =employeetype
                     };
                     university.AddEmployee(employee);
                     Console.WriteLine("Employee elave olundu");
