@@ -14,28 +14,27 @@ namespace GarageConsoleFinalApp
             while (true)
             {
                 Console.Write("\r\n Menu: ");
-                Console.WriteLine();
+                Console.WriteLine("\r\n");
                 Console.Write("1. Studentlerin siyahisini gostermek : ");
-                Console.WriteLine();
+                Console.WriteLine("\r\n");
                 Console.Write("2. Student Yaratmaq : ");
-                Console.WriteLine();
+                Console.WriteLine("\r\n");
                 Console.Write("3. Studentde deyisiklik etmek : \r\n (studentin groupno deyeri deyisile biler)");
-                Console.WriteLine();
-                Console.Write("4. Studentlerin ortalama qiymetini ve Employeelerin ortalama maasini gostermek : \r\n (1.Spesifik bir qrup uzre, 2. Butun studentleri 3. Butun Employeeleri)");
-                Console.WriteLine();
-                Console.WriteLine();
+                Console.WriteLine("\r\n");
+                Console.Write("4. Studentlerin ortalama qiymeti ve Employeelerin ortalama maasini gostermek :\r\n(1.Spesifik bir qrup uzre, 2. Butun studentleri 3. Butun Employeeleri)");
+                Console.WriteLine("\r\n");
                 Console.Write("5. Employeelerin siyahisini gostermek : \r\n (sistemdeki butun iscilerin)");
-                Console.WriteLine();
+                Console.WriteLine("\r\n");
                 Console.Write("6. Universitydeki iscilerin siyahisini gostermrek : \r\n (Departmente gore)");
-                Console.WriteLine();
+                Console.WriteLine("\r\n");
                 Console.Write("7. Yeni Employee elave etmek");
-                Console.WriteLine();
+                Console.WriteLine("\r\n");
                 Console.Write("8. Employee uzerinde deyisiklik etmek : \r\n (No daxil edin) :");
-                Console.WriteLine();
+                Console.WriteLine("\r\n");
                 Console.Write("9. Universityden isci silinmesi : \r\n (No daxil edin)");
-                Console.WriteLine();
+                Console.WriteLine("\r\n");
                 Console.Write("10. Employee ve ya Studenta gore axtaris etmek : ");
-                Console.WriteLine();
+                Console.WriteLine("\r\n");
                 Console.WriteLine("11. Sistemden cixis...");
 
 
@@ -113,7 +112,7 @@ namespace GarageConsoleFinalApp
                         break;
 
                     case "9":
-                        Console.Write("EmployeeNo daxil edin");
+                        Console.Write("EmployeeNo daxil edin : ");
                         string no = Console.ReadLine();
                         university.DeleteEmployee(no);
                         break;
@@ -135,7 +134,7 @@ namespace GarageConsoleFinalApp
                                 university.SearchStudent(groupType);
                                 break;
                             default:
-                                Console.Write("Secim yanlisdir \r\n");
+                                Console.Write("Secim yanlisdir ! \r\n");
                                 break;
                         }
                         break;
@@ -216,7 +215,7 @@ namespace GarageConsoleFinalApp
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Xeta bas verdi");
+                    Console.WriteLine("Error Try.. again !");
                 }
             }
 
@@ -270,7 +269,7 @@ namespace GarageConsoleFinalApp
             {
                 try
                 {
-                    Console.Write("EmployeeNo daxil edin");
+                    Console.Write("EmployeeNo daxil edin : ");
                     string no = Console.ReadLine();
 
                     Employee employee = new Employee

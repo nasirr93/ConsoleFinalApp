@@ -157,7 +157,7 @@ namespace GarageConsoleFinalApp
         }
         public void AddEmployee(Employee employee)
         {
-            if (_employees.Count < WorkerLimit && !_employees.Exists(e => e.Position == employee.Position))
+            if (_employees.Count < WorkerLimit && !_employees.Exists(e => e.empNo == employee.empNo))
                 _employees.Add(employee);
 
             else
@@ -207,7 +207,7 @@ namespace GarageConsoleFinalApp
                 Console.WriteLine("Employee silindi");
             }
             else
-                Console.WriteLine("Not deleted");
+                Console.WriteLine("Not Found");
         }
 
         public void ShowStudent()
