@@ -14,16 +14,7 @@ namespace GarageConsoleFinalApp
         private static int no = 1000;
         private double salary;
         private string position;
-        //public Employee(string fullname,string position,double salary, Department department, EmployeeType employeetype)
-        //{
-        //    //empNo = EmployeeNo(department);
-        //    //Fullname = CheckFullname(fullname);
-        //    //Position = position;
-        //    //Department = department;
-        //    //EmployeeType = employeetype;
-        //    //Salary = salary;
-           
-        //}
+    
 
         public Employee()
         {
