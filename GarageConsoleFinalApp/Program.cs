@@ -7,7 +7,9 @@ namespace GarageConsoleFinalApp
     {
         static void Main(string[] args)
         {
+
             University university = new University("AZMIU", 100, 10000);
+
 
             while (true)
             {
@@ -39,6 +41,7 @@ namespace GarageConsoleFinalApp
 
                 string choise = Console.ReadLine();
                 Console.Clear();
+
                 switch (choise)
                 {
                     case "1":
@@ -72,7 +75,7 @@ namespace GarageConsoleFinalApp
                                     university.CalcSalaryAverage();
                                     break;
                                 default:
-                                    Console.Write("Secim yanlisdir");
+                                    Console.Write("Secim yanlisdir \r\n");
                                     break;
                             }
                         }
@@ -132,7 +135,7 @@ namespace GarageConsoleFinalApp
                                 university.SearchStudent(groupType);
                                 break;
                             default:
-                                Console.Write("Secim yanlisdir");
+                                Console.Write("Secim yanlisdir \r\n");
                                 break;
                         }
                         break;
@@ -142,7 +145,7 @@ namespace GarageConsoleFinalApp
                         return;
 
                     default:
-                        Console.WriteLine("Yanlis secim ! Yeniden cehd edin");
+                        Console.WriteLine("Yanlis secim ! Yeniden cehd edin \r\n");
                         break;
                 }
 
@@ -155,12 +158,13 @@ namespace GarageConsoleFinalApp
                 {
                     Console.Write("Fullname daxil edin: ");
                     string fullname = Console.ReadLine();
+
                     Console.Write("Group Type: ");
                     GroupType groupType = (GroupType)Enum.Parse(typeof(GroupType), Console.ReadLine());
+
                     Console.Write("Point: ");
                     string pointStr;
                     double point;
-
                     do
                     {
                         pointStr = Console.ReadLine();
@@ -191,8 +195,10 @@ namespace GarageConsoleFinalApp
                 {
                     Console.Write("GroupNo daxil edin : ");
                     string eksNo = Console.ReadLine();
+
                     Console.Write("Yeni GroupNo daxil edin : ");
                     string yeniNo = Console.ReadLine();
+
                     Console.Write("Point daxil edin : ");
                     string pointStr;
                     double point;
@@ -214,16 +220,20 @@ namespace GarageConsoleFinalApp
                 }
             }
 
+
             void AddEmployee()
             {
                 try
                 {
                     Console.Write("Fullname daxil edin : ");
                     string fullname = Console.ReadLine();
+
                     Console.Write("Department : ");
                     Department department = (Department)Enum.Parse(typeof(Department), Console.ReadLine());
+
                     Console.Write("Position daxil edin : ");
                     string position = Console.ReadLine();
+
                     Console.Write("Salary daxil edin : ");
                     string salaryStr;
                     double salary;
@@ -231,6 +241,7 @@ namespace GarageConsoleFinalApp
                     {
                         salaryStr = Console.ReadLine();
                     } while (!double.TryParse(salaryStr, out salary));
+
                     Console.Write("EmployeeType daxil edin : ");
                     EmployeeType employeetype=(EmployeeType)Enum.Parse(typeof(EmployeeType), Console.ReadLine());
 
@@ -254,6 +265,7 @@ namespace GarageConsoleFinalApp
                 }
             }
 
+
             void EmployeeUpdate()
             {
                 try
@@ -275,6 +287,7 @@ namespace GarageConsoleFinalApp
                     {
                         salaryStr = Console.ReadLine();
                     } while (!double.TryParse(salaryStr, out salary));
+
                     Console.Write("New position daxil edin : ");
                     string position = Console.ReadLine();
 

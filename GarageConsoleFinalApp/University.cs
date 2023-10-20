@@ -99,7 +99,7 @@ namespace GarageConsoleFinalApp
         public void CalcSalaryAverage() // Unideki isciler ucun maas ortalama
         {
             double totalSum = 0;
-          
+
             if (_employees != null && _employees.Count > 0)
             {
                 for (int i = 0; i < _employees.Count; i++)
@@ -118,7 +118,7 @@ namespace GarageConsoleFinalApp
         public void CalcAllStudentsAverage() //Unideki telebeler ucun point ortalama
         {
             double totalSum = 0;
-            if (_students !=null && _students.Count > 0)
+            if (_students != null && _students.Count > 0)
             {
                 for (int i = 0; i < _students.Count; i++)
                 {
@@ -153,7 +153,7 @@ namespace GarageConsoleFinalApp
             {
                 Console.WriteLine("Groupda telebe yoxdur");
             }
-               
+
         }
         public void AddEmployee(Employee employee)
         {
@@ -173,6 +173,7 @@ namespace GarageConsoleFinalApp
         public void EmployeeUpdate(string employeeNo, double salary, string position)
         {
             Employee empUpadte = _employees.Find(e => e.empNo == employeeNo);
+
             if (empUpadte != null)
             {
                 empUpadte.Salary = salary;
@@ -186,7 +187,8 @@ namespace GarageConsoleFinalApp
         public void StudentUpdate(string eksGroupNo, string yeniGroupNo, double point)
         {
             Student stUpdate = _students.Find(s => s.GroupNo == eksGroupNo);
-            if (stUpdate != null )
+
+            if (stUpdate != null)
             {
                 stUpdate.Point = point;
                 stUpdate.GroupNo = yeniGroupNo;
@@ -243,7 +245,7 @@ namespace GarageConsoleFinalApp
         {
             var employeeNo = _employees.FindAll(employees => employees.empNo == empno);
 
-            if (employeeNo !=null && employeeNo.Count > 0)
+            if (employeeNo != null && employeeNo.Count > 0)
             {
                 foreach (var item in employeeNo)
                 {
@@ -260,7 +262,7 @@ namespace GarageConsoleFinalApp
         {
             var departmentEmployee = _employees.FindAll(employees => employees.Department == department);
 
-            if(departmentEmployee != null && departmentEmployee.Count > 0)
+            if (departmentEmployee != null && departmentEmployee.Count > 0)
             {
                 foreach (var item in departmentEmployee)
                 {
@@ -275,28 +277,28 @@ namespace GarageConsoleFinalApp
 
 
         public void SearchEmploye(EmployeeType emptype)
-        {           
+        {
 
             var foundEmployees = _employees.FindAll(employees => employees.EmployeeType == emptype);
-         
-                   
+
+
             if (foundEmployees != null && foundEmployees.Count > 0)
             {
                 Console.WriteLine("The result for Employees: ");
                 foreach (var employee in foundEmployees)
                 {
-                    Console.WriteLine(employee.Fullname); 
+                    Console.WriteLine(employee.Fullname);
                 }
             }
             else
             {
                 Console.WriteLine("Not Found");
             }
-            
+
         }
         public void SearchStudent(GroupType grtype)
         {
-            var foundStudents = _students.FindAll(student=> student.GroupType == grtype);
+            var foundStudents = _students.FindAll(student => student.GroupType == grtype);
 
             if (foundStudents != null && foundStudents.Count > 0)
             {
@@ -311,7 +313,7 @@ namespace GarageConsoleFinalApp
                 Console.WriteLine("Not Found");
             }
         }
-        
+
 
     }
 }

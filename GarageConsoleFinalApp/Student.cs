@@ -113,9 +113,9 @@ namespace GarageConsoleFinalApp
                     {
                         groupNo = "S";
                     }
-                    int empNo = no++;
+                    int grNo = no++;
                     string text = groupNo.ToString().Substring(0, 1);
-                    string join = $"{text}{empNo}";
+                    string join = $"{text}{grNo}";
                     return join;
                 }
 
