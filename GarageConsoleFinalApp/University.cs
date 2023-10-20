@@ -166,6 +166,8 @@ namespace GarageConsoleFinalApp
         public void AddStudent(Student student)
         {
             if (_students.Count < WorkerLimit && !_students.Exists(x => x.GroupNo == student.GroupNo))
+
+
                 _students.Add(student);
             else
                 Console.WriteLine("Student elave etmek mumkun olmadi");
