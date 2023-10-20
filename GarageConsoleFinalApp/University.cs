@@ -186,14 +186,13 @@ namespace GarageConsoleFinalApp
 
                 Console.WriteLine("Employee Not Found");
         }
-        public void StudentUpdate(string eksGroupNo, string yeniGroupNo, double point)
+        public void StudentUpdate(string eksGroupNo, double point)
         {
             Student stUpdate = _students.Find(s => s.GroupNo == eksGroupNo);
 
             if (stUpdate != null)
             {
                 stUpdate.Point = point;
-                stUpdate.GroupNo = yeniGroupNo;
                 Console.WriteLine("Student Updated olundu !");
             }
             else

@@ -195,10 +195,7 @@ namespace GarageConsoleFinalApp
                     Console.Write("GroupNo daxil edin : ");
                     string eksNo = Console.ReadLine();
 
-                    Console.Write("Yeni GroupNo daxil edin : ");
-                    string yeniNo = Console.ReadLine();
-
-                    Console.Write("Point daxil edin : ");
+                    Console.Write("New point daxil edin : ");
                     string pointStr;
                     double point;
                     do
@@ -208,10 +205,10 @@ namespace GarageConsoleFinalApp
 
                     Student uptStudent = new Student()
                     {
-                        GroupNo = yeniNo,
+
                         Point = point,
                     };
-                    university.StudentUpdate(eksNo, yeniNo, point);
+                    university.StudentUpdate(eksNo, point);
                 }
                 catch (Exception)
                 {
